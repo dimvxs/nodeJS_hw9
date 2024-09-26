@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление факультетами</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* расстояние между формами */
+        }
+        form {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 30%; /* ширина каждой формы */
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="submit"], button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"], button {
+            background-color: #1e6dce;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #004aad;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Управление факультетами</h1>
+
+<div class="form-container">
+    <!-- Форма для добавления факультета -->
+    <form id="add-faculty" action="/faculty/add" method="POST">
+        <h2>Добавить факультет</h2>
+        <label for="faculty-name">Название факультета:</label>
+        <input type="text" id="faculty-name" name="facultyName" required>
+
+        <label for="faculty-id">ID факультета:</label>
+        <input type="text" id="faculty-id" name="facultyID" required>
+
+        <input type="submit" value="Добавить">
+    </form>
+
+    <!-- Форма для удаления факультета -->
+    <form id="delete-faculty" action="/faculty/delete" method="POST">
+        <h2>Удалить факультет</h2>
+        <label for="delete-faculty-id">ID факультета:</label>
+        <input type="text" id="delete-faculty-id" name="facultyID" required>
+
+        <button type="submit">Удалить</button>
+    </form>
+
+    <!-- Форма для редактирования факультета -->
+    <form id="edit-faculty" action="/faculty/edit" method="POST">
+        <h2>Редактировать факультет</h2>
+        <label for="edit-faculty-id">ID факультета:</label>
+        <input type="text" id="edit-faculty-id" name="facultyID" required>
+
+        <label for="edit-faculty-name">Новое название факультета:</label>
+        <input type="text" id="edit-faculty-name" name="facultyName" required>
+
+        <input type="submit" value="Редактировать">
+    </form>
+</div>
+
+</body>
+</html>

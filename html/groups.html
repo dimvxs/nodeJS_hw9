@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление группами</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* расстояние между формами */
+        }
+        form {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 30%; /* ширина каждой формы */
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="submit"], button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"], button {
+            background-color: #1e6dce;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #004aad;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Управление группами</h1>
+
+<div class="form-container">
+    <form id="add-group" action="/group/add" method="POST">
+        <h2>Добавить группу</h2>
+        <label for="group-name">Название группы:</label>
+        <input type="text" id="groupName" name="groupName" required>
+
+        <label for="group-id">ID группы:</label>
+        <input type="text" id="groupID" name="groupID" required>
+
+        <label for="faculty-id">ID факультета:</label>
+        <input type="text" id="facultyID" name="facultyID" required>
+
+        <input type="submit" value="Добавить">
+    </form>
+
+    <form id="delete-group" action="/group/delete" method="POST">
+        <h2>Удалить группу</h2>
+        <label for="group-id">ID группы:</label>
+        <input type="text" id="deleteGroupID" name="groupID" required>
+
+        <button type="submit">Удалить</button>
+    </form>
+
+    <form id="edit-group" action="/group/edit" method="POST">
+        <h2>Редактировать группу</h2>
+        <label for="group-name">Название группы:</label>
+        <input type="text" id="editGroupName" name="groupName" required>
+
+        <label for="group-id">ID группы:</label>
+        <input type="text" id="editGroupID" name="groupID" required>
+
+        <label for="faculty-id">ID факультета:</label>
+        <input type="text" id="editFacultyID" name="facultyID" required>
+
+        <input type="submit" value="Редактировать">
+    </form>
+</div>
+
+</body>
+</html>

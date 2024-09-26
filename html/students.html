@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить студента</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* расстояние между формами */
+        }
+        form {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 30%; /* ширина каждой формы */
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="submit"], button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"], button {
+            background-color: #1e6dce;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #004aad;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Добавить студента</h1>
+
+<div class="form-container">
+    <form id="add-student" action="/student/add" method="POST">
+        <h2>Добавить студента</h2>
+        <label for="firstName">Имя:</label>
+        <input type="text" id="firstName" name="name" required>
+
+        <label for="lastName">Фамилия:</label>
+        <input type="text" id="lastName" name="surname" required>
+
+        <label for="groupId">ID группы:</label>
+        <input type="text" id="groupId" name="groupID" required>
+
+        <label for="studentId">ID студента:</label>
+        <input type="text" id="studentId" name="studentsID" required>
+
+        <input type="submit" value="Добавить">
+    </form>
+
+    <form id="delete-student" action="/student/delete" method="POST">
+        <h2>Удалить студента</h2>
+        <label for="student-id">ID студента:</label>
+        <input type="text" id="deleteStudentID" name="studentsID" required>
+
+        <button type="submit">Удалить</button>
+    </form>
+
+    <form id="edit-student" action="/student/edit" method="POST">
+        <h2>Редактировать студента</h2>
+        <label for="student-name">Имя:</label>
+        <input type="text" id="editStudentName" name="name" required>
+
+        <label for="student-surname">Фамилия:</label>
+        <input type="text" id="editStudentSurname" name="surname" required>
+
+        <label for="student-id">ID студента:</label>
+        <input type="text" id="editStudentID" name="studentsID" required>
+
+        <label for="student-id">ID группы:</label>
+        <input type="text" id="editStudentID" name="groupID" required>
+
+        <input type="submit" value="Редактировать">
+    </form>
+</div>
+
+</body>
+</html>
